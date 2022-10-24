@@ -1,4 +1,4 @@
-name: super-linter
+name: Super-Linter
 on: push
 jobs:
   super-lint:
