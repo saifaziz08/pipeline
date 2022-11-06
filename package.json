@@ -5,6 +5,9 @@
     "moment": "^2.29.1",
     "jest": "^27.4.3"
   },
+   "devDependencies": {
+    "jest": "^27.4.3"
+  }
   "description": "",
   "scripts": {
     "test": "jest"
