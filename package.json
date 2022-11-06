@@ -1,8 +1,12 @@
 {
   "name" : "simple",
   "main" : "app.js",
-  "scripts": {"test": "mocha"},
   "dependencies": {
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "jest": "^27.4.3"
+  },
+  "description": "",
+  "scripts": {
+    "test": "jest"
   }
 }
