@@ -27,8 +27,6 @@ jobs:
       run: npm test
     - name: Start APP
       run: node app.js
-    - name: Coverage
-      run: npm run coverage
 
     # Save coverage report in Coveralls
     - name: Coveralls
