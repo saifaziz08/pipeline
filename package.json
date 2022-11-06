@@ -7,7 +7,7 @@
   },
    "devDependencies": {
     "jest": "^27.4.3"
-  }
+  },
   "description": "",
   "scripts": {
     "test": "jest"
