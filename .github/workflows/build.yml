@@ -1,6 +1,10 @@
-name: Running Code Coverage
+name: Pipeline
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
@@ -9,24 +13,19 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 13.x, 14.x, 15.x]
+        node-version: [12.x, 14.x, 16.x]
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 2
-
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-
-    - name: Install dependencies
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+    - name: Installing NPM  
       run: npm install
-
-    - name: Run tests
-      run: npm run test
-
+    - name: Npm CI  
+      run: npm ci
+    - name: Running Tests
+      run: npm test
+    - name: Start APP
+      run: node app.js
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
