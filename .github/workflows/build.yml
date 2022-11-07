@@ -4,7 +4,6 @@ on:
     paths-ignore:
       - '**/*.md'
       - '**/*.yml'
-      - '.github/**'
       - 'data/**'
       - 'dist/**'
 
