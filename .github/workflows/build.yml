@@ -1,66 +1,20 @@
-name: Update Coverage in README
+# This workflow will install dependencies, create coverage tests and run Jest Coverage Comment
+# For more information see: https://github.com/MishaKav/jest-coverage-comment/
+name: Jest Coverage Comment
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
-    
 jobs:
-  update-coverage-in-readme:
-    name: Update Coverage in README
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: NPM Cache
-        id: npm-cache
-        uses: actions/cache@v3
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm
-      - name: Install Dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
+      - name: Install dependencies
         run: npm ci
 
-      - name: Check Format
-        run: npm run format-check
-
-      - name: Check Lint
-        run: npm run lint
-
-      - name: Check Build
-        run: npm run build
-
-      - name: Run Tests
-        run: npm run test:coverage | tee ./coverage.txt
+      - name: Run tests
+        run: |
+          npx jest --coverage --coverageReporters json-summary
 
       - name: Jest Coverage Comment
-        id: coverageComment
         uses: MishaKav/jest-coverage-comment@main
-        with:
-          hide-comment: true
-          coverage-path: ./coverage.txt
-          junitxml-path: ./coverage/junit.xml
-
-      - name: Check the output coverage
-        run: |
-          echo "Summary Report"
-          echo "Coverage Percentage - ${{ steps.coverageComment.outputs.coverage }}"
-          echo "Coverage Color - ${{ steps.coverageComment.outputs.color }}"
-          echo "Summary Html - ${{ steps.coverageComment.outputs.summaryHtml }}"
-          echo "JUnit Report"
-          echo "tests - ${{ steps.coverageComment.outputs.tests }}"
-          echo "skipped - ${{ steps.coverageComment.outputs.skipped }}"
-          echo "failures - ${{ steps.coverageComment.outputs.failures }}"
-          echo "errors - ${{ steps.coverageComment.outputs.errors }}"
-          echo "time - ${{ steps.coverageComment.outputs.time }}"
-          echo "Coverage Report"
-          echo "lines - ${{ steps.coverageComment.outputs.lines }}"
-          echo "branches - ${{ steps.coverageComment.outputs.branches }}"
-          echo "functions - ${{ steps.coverageComment.outputs.functions }}"
-          echo "statements - ${{ steps.coverageComment.outputs.statements }}"
-          echo "coverage - ${{ steps.coverageComment.outputs.coverage }}"
-          echo "color - ${{ steps.coverageComment.outputs.color }}"
-          echo "Coverage Html - ${{ steps.coverageComment.outputs.coverageHtml }}"
