@@ -24,6 +24,6 @@ jobs:
     - name: Npm CI  
       run: npm ci
     - name: Running Tests
-      run: npm test > output.txt
+      run: npm test
     - name: Start APP
       run: node app.js
