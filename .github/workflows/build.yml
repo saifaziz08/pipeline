@@ -27,3 +27,6 @@ jobs:
       run: npm test
     - name: Start APP
       run: node app.js
+    - uses: artiomtr/jest-coverage-report-action@v2
+      with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
