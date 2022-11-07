@@ -1,12 +1,10 @@
 name: Update Coverage in README
 on:
   push:
-    paths-ignore:
-      - '**/*.md'
-      - '**/*.yml'
-      - 'data/**'
-      - 'dist/**'
-
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    
 jobs:
   update-coverage-in-readme:
     name: Update Coverage in README
