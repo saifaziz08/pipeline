@@ -27,6 +27,8 @@ jobs:
       run: npm test
     - name: Start APP
       run: node app.js
-    - uses: romeovs/lcov-reporter-action@v0.2.16
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v2
       with:
-        lcov-file: ./coverage/lcov.info
+          name: code-coverage-report
+          path: coverage/lcov.info
