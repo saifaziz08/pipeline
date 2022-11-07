@@ -24,11 +24,6 @@ jobs:
     - name: Npm CI  
       run: npm ci
     - name: Running Tests
-      run: npm test
+      run: npm test > output.txt
     - name: Start APP
       run: node app.js
-    - name: Archive code coverage results
-      uses: actions/upload-artifact@v2
-      with:
-          name: code-coverage-report
-          path: coverage/lcov.info
