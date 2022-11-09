@@ -28,7 +28,7 @@
   "description": "",
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write '*.js'",
+    "format": "npx prettier --write .",
     "format-check": "prettier --check *.js",
     "package": "ncc build --source-map --license licenses.txt",
     "test": "jest",
