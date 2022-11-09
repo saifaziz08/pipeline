@@ -26,3 +26,9 @@ jobs:
 
       - name: Jest Coverage
         uses: MishaKav/jest-coverage-comment@main
+      
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
+          prettier: true
