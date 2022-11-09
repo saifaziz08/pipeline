@@ -28,4 +28,4 @@ jobs:
         uses: MishaKav/jest-coverage-comment@main
 
       - name: Run linters
-      - run: npm run format
+        run: npm run format-check
