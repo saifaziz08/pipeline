@@ -16,3 +16,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
+    - name: Build the Docker image
+      uses: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
