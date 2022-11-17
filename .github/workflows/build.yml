@@ -22,12 +22,12 @@ jobs:
         working-directory: ./web/maxwell/deployments/ttc-bus/frontend/
         run: yarn build   
 
-      - name: Run tests
+      - name: Run Tests
         run: |
           npx jest --coverage --coverageReporters json-summary
 
-      - name: Jest Coverage
+      - name: Test Coverage
         uses: MishaKav/jest-coverage-comment@main
 
-      - name: Run linters
+      - name: Format Check
         run: npm run format-check
