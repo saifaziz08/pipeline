@@ -21,8 +21,8 @@ jobs:
         run: exit 1
         
       - name: Step To run on failure
-        uses: jdcargile/ms-teams-notification@v1.3
         if: ${{ failure() }}
+        uses: jdcargile/ms-teams-notification@v1.3
         with:
           github-token: ${{ github.token }} # this will use the runner's token.
           ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
