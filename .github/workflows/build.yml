@@ -27,5 +27,5 @@ jobs:
           github-token: ${{ github.token }} # this will use the runner's token.
           ms-teams-webhook-uri: https://baicommunications.webhook.office.com/webhookb2/b2774114-98ec-4154-aded-38242de6d28e@469b9b62-8fa8-4ac8-94d4-bf116275b0c2/IncomingWebhook/f71f8c12058a440b8f154ddd0c1d2fbd/691b548b-d8dd-4f49-ab3e-159ab5bac038
           notification-summary: Test failure
-          notification-color: 17a2b8
-          timezone: America/Denver
+          notification-color: dc3545
+          timezone: Canada/Toronto
